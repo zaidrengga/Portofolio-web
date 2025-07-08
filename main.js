@@ -1,15 +1,32 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll('.animate-on');
+const texts = [" Web Developer ", " UI/UX Enthusiast "];
+let count = 0;
+let index = 0;
+let isDeleting = false;
+let speed = 100;
 
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-            }
-        });
-    }, {
-        threshold: 0.5
-    });
+function typeWriter() {
+  const current = texts[count % texts.length];
+  const displayText = isDeleting
+    ? current.substring(0, index--)
+    : current.substring(0, index++);
 
-    elements.forEach(el => observer.observe(el));
-});
+  document.getElementById("typing").textContent = displayText;
+
+  // Adjust speed for deleting
+  let typeSpeed = isDeleting ? speed / 2 : speed;
+
+  if (!isDeleting && index === current.length) {
+    // Pause at end
+    typeSpeed = 2000;
+    isDeleting = true;
+  } else if (isDeleting && index === 0) {
+    // Next text
+    isDeleting = false;
+    count++;
+    typeSpeed = 500;
+  }
+
+  setTimeout(typeWriter, typeSpeed);
+}
+
+typeWriter();

@@ -1,0 +1,101 @@
+@keyframes fade-left {
+  from {
+    opacity: 0;
+    filter: blur(5px);
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+}
+@keyframes fade-up {
+  from {
+        opacity: 0;
+        filter: blur(5px);
+        transform: translateY(30px) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0) scale(1);
+    }
+}
+
+.fade-left {
+  animation: fade-left both;
+}
+
+.fade-up {
+  animation: fade-up both;
+}
+
+.fade-up, .fade-left {
+  animation-timeline: view(70% 5%);
+}
+
+@keyframes hero-fade-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+}
+@keyframes hero-fade-right {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-fade-left {
+  animation: hero-fade-left 1s ease-in-out both;
+}
+.hero-fade-right {
+  animation: hero-fade-right 1s ease-in-out both;
+}
+
+
+@keyframes scroll-left {
+  form {
+    transform: translateX(0%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.scroll-left {
+  animation: scroll-left 20s linear infinite;
+}
+
+@keyframes animate-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(2deg);
+    }
+}
