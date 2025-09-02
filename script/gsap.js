@@ -1,15 +1,43 @@
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.to("#vanta-bg #vanta", {
-    y: -100,
-    scrollTrigger: {
-        trigger: "#vanta-bg",
-        start: "top top",
-        end: "bottom top",
-        pin: true,
-        scrub: true,
-    }
+window.addEventListener("load", () => {
+    const preloader = document.getElementById("preloader");
+    const mainContent = document.getElementById("main-content");
+
+    // Sembunyikan preloader
+    preloader.style.opacity = 0;
+    preloader.style.transition = "opacity 0.5s ease";
+
+    setTimeout(() => {
+        preloader.style.display = "none";
+        // Tampilkan konten utama
+        mainContent.classList.remove("hidden");
+
+        // Animasi masuk main content
+        gsap.from("#main-content > *", {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            ease: "power3.out",
+        });
+
+        // Animasi scroll GSAP untuk Vanta
+        const vantaCanvas = document.querySelector("#vanta-bg canvas");
+        gsap.to(vantaCanvas, {
+            y: 200,
+            scale: 1.2,
+            scrollTrigger: {
+                trigger: "#vanta-bg",
+                start: "top top",
+                end: "bottom top",
+                pin: true,
+                scrub: true,
+            }
+        });
+    }, 500);
 });
+
+
 
 const fadeElements = [
     { selector: "data-fade-up", enter: { y: 50 }, leave: { y: -50 } },
@@ -20,24 +48,23 @@ const fadeElements = [
 
 fadeElements.forEach(item => {
     document.querySelectorAll(`[${item.selector}]`).forEach(el => {
+        // Set state awal agar tidak terlihat
+        gsap.set(el, { ...item.enter, opacity: 0 });
+
         ScrollTrigger.create({
             trigger: el,
-            start: "top bottom",
-            end: "bottom top",
+            start: "top 80%", // animasi mulai ketika elemen hampir muncul
+            end: "bottom 20%",
+            toggleActions: "play reverse play reverse", // play saat masuk, reverse saat keluar
             onEnter: () => {
-                gsap.fromTo(
-                    el,
-                    { ...item.enter, opacity: 0 },
-                    {
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.4,
-                        ease: "power3.out",
-                        delay: 0.05,
-                        overwrite: "auto"
-                    }
-                );
+                gsap.to(el, {
+                    x: 0,
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    overwrite: "auto"
+                });
             },
             onLeave: () => {
                 gsap.to(el, {
@@ -49,19 +76,14 @@ fadeElements.forEach(item => {
                 });
             },
             onEnterBack: () => {
-                gsap.fromTo(
-                    el,
-                    { ...item.leave, opacity: 0 },
-                    {
-                        x: 0,
-                        y: 0,
-                        opacity: 1,
-                        duration: 1.4,
-                        ease: "power3.out",
-                        delay: 0.05,
-                        overwrite: "auto"
-                    }
-                );
+                gsap.to(el, {
+                    x: 0,
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.4,
+                    ease: "power3.out",
+                    overwrite: "auto"
+                });
             },
             onLeaveBack: () => {
                 gsap.to(el, {
@@ -74,6 +96,11 @@ fadeElements.forEach(item => {
             }
         });
     });
+});
+
+// Refresh ScrollTrigger setelah semua konten load
+window.addEventListener("load", () => {
+    ScrollTrigger.refresh();
 });
 
 

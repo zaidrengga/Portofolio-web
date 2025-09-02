@@ -30,4 +30,5 @@ function updateTime() {
 }
 
 updateTime();
-setInterval(updateTime, 60000); // Update every minute
+setInterval(updateTime, 60000);
+

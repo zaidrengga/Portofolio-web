@@ -59,6 +59,11 @@
 </style>
 
 <body>
+
+    <div id="preloader" class="fixed inset-0 bg-black flex justify-center items-center z-[9999]">
+        <div class="loader w-16 h-16 border-4 border-t-primary border-gray-600 rounded-full animate-spin"></div>
+    </div>
+
     <header class="w-full h-12 fixed top-0 left-0 right-0 z-50 transition-all duration-300">
         <nav class="flex justify-between items-center w-full h-full px-6 y-1">
             <h1 class="text-2xl font-bold text-secondary">
@@ -83,9 +88,9 @@
         </nav>
     </header>
 
-    <main class="w-dvw overflow-hidden">
+    <main id="main-content" class="w-dvw overflow-hidden hidden">
         <section id="home" class="s-page-1 flex justify-center items-center w-full min-h-screen overflow-hidden">
-            <div id="vanta-bg" class="w-full h-screen absolute -z-10 top-0 left-0 right-0">
+            <div id="vanta-bg" class="w-full h-screen absolute -z-10 inset-0">
                 <div id="vanta" class="w-full h-screen"></div>
             </div>
 
@@ -119,7 +124,7 @@
 
         <section id="about"
             class="s-page-2 relative w-full min-h-screen p-4 flex md:flex-row flex-col justify-center items-center gap-10">
-            <div id="aurora" class="w-full min-h-screen h-full absolute -z-10 top-0 left-0 right-0">
+            <div id="aurora" class="w-full  h-full absolute -z-10 top-0 left-0 right-0">
                 <div id="s-aurora" class="w-full min-h-screen h-full"></div>
             </div>
 
@@ -134,11 +139,13 @@
                 <div class="flex flex-col gap-2 pt-4">
                     <span>
                         My journey in technology began with a simple curiosity about how a website could connect
-                        millions of people. That curiosity quickly grew into a passion for learning, experimenting, and
+                        millions of people. That curiosity quickly grew into a passion for learning, experimenting,
+                        and
                         ultimately building my own web applications.
                     </span>
                     <span>
-                        As a problem solver, I enjoy every stage of the development process, from translating designs
+                        As a problem solver, I enjoy every stage of the development process, from translating
+                        designs
                         into
                         functional code to solving complex technical challenges. My work philosophy centers on
                         collaboration,
@@ -146,7 +153,8 @@
                         industry.
                     </span>
                     <span>
-                        Currently, I am looking for opportunities to collaborate on challenging and impactful projects.
+                        Currently, I am looking for opportunities to collaborate on challenging and impactful
+                        projects.
                     </span>
                 </div>
             </div>
@@ -320,7 +328,8 @@
             </div>
 
             <div class="mt-10 pt-6 border-t border-gray-800 text-center">
-                <p class="text-sm">© <span id="copyright-year">2025</span> Zaid Rengga | Designed & Built from Scratch
+                <p class="text-sm">© <span id="copyright-year">2025</span> Zaid Rengga | Designed & Built from
+                    Scratch
                 </p>
                 <p class="text-xs mt-2">Surabaya, Indonesia - <span id="local-time"></span></p>
             </div>

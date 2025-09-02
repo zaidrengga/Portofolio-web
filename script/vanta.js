@@ -5,8 +5,8 @@ var setVanta = () => {
     mouseControls: true,       // bereaksi ke mouse
     touchControls: true,       // bereaksi ke touch
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: window.innerHeight * 1.5,
+    minWidth: window.innerWidth,
     backgroundColor: 0x0,
     scale: 1.0,
     scaleMobile: 1.0,
@@ -24,8 +24,8 @@ var setVanta2 = () => {
     mouseControls: true,       // bereaksi ke mouse
     touchControls: true,       // bereaksi ke touch
     gyroControls: false,
-    minHeight: 200.00,
-    minWidth: 200.00,
+    minHeight: window.innerHeight,
+    minWidth: window.innerWidth,
     backgroundColor: 0x0,
     amplitude: 0.1             // gerakan halus saat idle
   });
