@@ -123,6 +123,9 @@ closeModal.addEventListener("click", () => {
     modal.classList.add("hidden");
     modal.classList.remove("flex");
     document.body.style.overflow = "";
+
+    // tampilkan hoverCard saat modal ditutup
+    hoverCard.classList.remove("hidden");
 });
 
 modal.addEventListener("click", (e) => {
@@ -130,5 +133,8 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
         modal.classList.remove("flex");
         document.body.style.overflow = "";
+
+        // tampilkan hoverCard saat modal ditutup
+        hoverCard.classList.remove("hidden");
     }
 });
