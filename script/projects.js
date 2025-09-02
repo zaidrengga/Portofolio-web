@@ -106,6 +106,7 @@ projects.forEach((p, index) => {
         modalImg.src = p.img;
 
         modal.classList.remove("hidden");
+        modal.classList.add("flex");
         document.body.style.overflow = "hidden";
     });
 });

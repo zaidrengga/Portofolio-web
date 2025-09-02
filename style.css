@@ -1,0 +1,58 @@
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        overflow-x: hidden;
+    }
+
+    .skill-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* biar konten selalu rata tengah */
+        gap: 0.75rem;
+        /* 12px */
+        padding: 0.75rem 1rem;
+        /* lebih proporsional, 12px vertikal, 16px horizontal */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* sedikit lebih transparan untuk efek glass */
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        /* border soft putih transparan */
+        border-radius: 0.75rem;
+        /* rounded-xl */
+        backdrop-filter: blur(16px);
+        /* efek blur glassmorphism */
+        transition: all 0.3s ease;
+        /* animasi smooth untuk hover */
+        cursor: default;
+        min-width: 100px;
+    }
+
+    .skill-item:hover {
+        background-color: rgba(103, 58, 183, 0.2);
+        /* hover dengan warna primary lembut */
+        transform: translateY(-3px) scale(1.05);
+        /* efek hover naik sedikit */
+        box-shadow: 0 8px 20px rgba(103, 58, 183, 0.3);
+        /* shadow subtle */
+    }
+
+    .skill-item img {
+        width: 40px;
+        /* sedikit lebih besar agar jelas */
+        height: 40px;
+        object-fit: contain;
+    }
+
+    .snowflake {
+        position: absolute;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        user-select: none;
+        pointer-events: none;
+        z-index: 0;
+    }

@@ -12,50 +12,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Development version -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <style type="text/tailwindcss">
     @theme {
-    --color-background: #000;
-    --color-foreground: #F7F7F7;
-    --color-primary: #673AB7;
-    --color-secondary: #FF5722;
-    --color-accent: #FFEB3B;
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    overflow-x: hidden;
-  }
-  .skill-item {
-                display: flex;
-                align-items: center;
-                gap: 0.75rem;
-                /* 12px */
-                padding: 0.75rem;
-                /* 12px */
-                background-color: rgba(0, 0, 0, 0.5);
-                /* bg-background/50 */
-                border: 1px solid rgb(55 65 81);
-                /* border-gray-700 */
-                border-radius: 0.75rem;
-                /* rounded-xl */
-                backdrop-filter: blur(16px);
-                transition: background-color 0.3s;
-            }
-
-            .skill-item:hover {
-                background-color: rgba(103, 58, 183, 0.2);
-                /* hover:bg-primary/20 */
-            }
-
-            .skill-item img {
-                width: 30px;
-                height: 30px;
-            }
+        --color-background: #000;
+        --color-foreground: #F7F7F7;
+        --color-primary: #673AB7;
+        --color-secondary: #FF5722;
+        --color-accent: #FFEB3B;
+    }
 </style>
 
 <body>
@@ -160,34 +127,36 @@
             </div>
         </section>
 
-        <section id="skills" class="relative w-full flex justify-center items-center p-4 py-20">
-            <div class="w-full max-w-4xl flex flex-col items-center">
-                <h1 data-fade-up class="sm:text-4xl text-2xl font-bold text-secondary text-center mb-12">
-                    My <span class="text-primary">Skills & Technologies</span>
+        <section id="skills" class="relative w-full flex justify-center items-center py-20">
+            <div class="w-full flex flex-col items-center">
+                <h1 data-fade-up class="sm:text-4xl text-2xl font-bold text-center p-4">
+                    <span class=" text-secondary">Skills</span> & <span class="text-primary">Technologies</span>
                 </h1>
-                <div id="skills-list" class="flex flex-wrap gap-4 justify-center">
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/html-5--v1.png"
-                            alt="HTML5 logo" /><span>HTML5</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/css3.png"
-                            alt="CSS3 logo" /><span>CSS3</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/javascript.png"
-                            alt="JavaScript logo" /><span>JavaScript</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/react-native.png"
-                            alt="React logo" /><span>React</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/nextjs.png"
-                            alt="Next.js logo" /><span>Next.js</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/vite.png"
-                            alt="Vite logo" /><span>Vite</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/tailwind_css.png"
-                            alt="Tailwind CSS logo" /><span>Tailwind CSS</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/nodejs.png"
-                            alt="Node.js logo" /><span>Node.js</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/supabase.png"
-                            alt="Supabase logo" /><span>Supabase</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/postgreesql.png"
-                            alt="PostgreSQL logo" /><span>PostgreSQL</span></div>
-                    <div class="skill-item"><img src="https://img.icons8.com/color/48/mongodb.png"
-                            alt="MongoDB logo" /><span>MongoDB</span></div>
+                <div class="overflow-hidden w-full py-6">
+                    <div id="skills-marquee" class="flex gap-4">
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/html-5--v1.png"
+                                alt="HTML5 logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/css3.png" alt="CSS3 logo" />
+                        </div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/javascript.png"
+                                alt="JavaScript logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/react-native.png"
+                                alt="React logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/nextjs.png"
+                                alt="Next.js logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/vite.png" alt="Vite logo" />
+                        </div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/tailwind_css.png"
+                                alt="Tailwind CSS logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/nodejs.png"
+                                alt="Node.js logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/supabase.png"
+                                alt="Supabase" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/postgreesql.png"
+                                alt="PostgreSQL logo" /></div>
+                        <div class="skill-item"><img src="https://img.icons8.com/color/48/mongodb.png" alt="MongoDB" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,7 +189,7 @@
             Hover card here...
         </div>
         <!-- Modal -->
-        <div id="detail-modal" class="hidden fixed inset-0 bg-black/50 flex items-center justify-center z-[10000]">
+        <div id="detail-modal" class="hidden fixed inset-0 bg-black/50 items-center justify-center z-[10000]">
             <div class="bg-foreground/10 backdrop-blur p-6 rounded-xl w-[400px] max-h-[90vh] overflow-y-auto relative">
                 <button id="close-modal" class="absolute top-2 right-2 text-gray-600 hover:text-black">✕</button>
                 <img id="modal-img" src="" alt="project" class="w-full h-40 object-cover rounded-lg mb-4" />
@@ -230,7 +199,9 @@
             </div>
         </div>
 
-        <section class="s-page-4 w-full h-full flex justify-center items-center px-4 pt-10">
+        <section class="s-page-4 w-full h-full flex justify-center items-center px-4 pt-10 relative">
+            <div id="snow-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
             <div data-fade-right>
                 <img src="./image/my-image-3.png" class="w-80 object-cover">
             </div>
@@ -282,7 +253,7 @@
             </div>
         </section>
 
-        <footer class="bg-background/80 backdrop-blur-md border-t border-gray-700 md:mt-0 mt-20">
+        <footer data-fade-up class="bg-background/80 backdrop-blur-md border-t border-gray-700 md:mt-0 mt-20">
             <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between gap-8">
                 <!-- Brand -->
                 <div class="flex flex-col gap-2">
