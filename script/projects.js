@@ -114,7 +114,7 @@ projects.forEach((p, index) => {
         document.body.style.overflow = "hidden";
 
         // sembunyikan hoverCard saat modal terbuka
-        hoverCard.style.opacity = "0";
+        hoverCard.classList.add("hidden");
     });
 });
 
