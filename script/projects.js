@@ -86,7 +86,6 @@ projects.forEach((p, index) => {
               <p class="text-md font-bold">${p.title}</p>
               <p class="text-sm text-gray-400">${p.model}</p>
             `;
-            hoverCard.style.opacity = "1";
         }
     });
 
@@ -95,10 +94,11 @@ projects.forEach((p, index) => {
             hoverCard.style.left = e.pageX + 20 + "px";
             hoverCard.style.top = e.pageY + 20 + "px";
         }
+        hoverCard.classList.remove("hidden");
     });
 
     li.addEventListener("mouseleave", () => {
-        hoverCard.style.opacity = "0";
+        hoverCard.classList.add("hidden");
     });
 
     // modal open
