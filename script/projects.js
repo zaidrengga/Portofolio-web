@@ -80,17 +80,21 @@ projects.forEach((p, index) => {
 
     // hover card
     li.addEventListener("mouseenter", () => {
-        hoverCard.innerHTML = `
-      <img src="${p.img}" class="w-full h-32 object-cover rounded-lg mb-2" />
-      <p class="text-md font-bold">${p.title}</p>
-      <p class="text-sm text-gray-400">${p.model}</p>
-    `;
-        hoverCard.style.opacity = "1";
+        if (!modal.classList.contains("flex")) { // hanya tampilkan jika modal tidak terbuka
+            hoverCard.innerHTML = `
+              <img src="${p.img}" class="w-full h-32 object-cover rounded-lg mb-2" />
+              <p class="text-md font-bold">${p.title}</p>
+              <p class="text-sm text-gray-400">${p.model}</p>
+            `;
+            hoverCard.style.opacity = "1";
+        }
     });
 
     li.addEventListener("mousemove", (e) => {
-        hoverCard.style.left = e.pageX + 20 + "px";
-        hoverCard.style.top = e.pageY + 20 + "px";
+        if (!modal.classList.contains("flex")) { // hanya gerakkan jika modal tidak terbuka
+            hoverCard.style.left = e.pageX + 20 + "px";
+            hoverCard.style.top = e.pageY + 20 + "px";
+        }
     });
 
     li.addEventListener("mouseleave", () => {
@@ -108,18 +112,23 @@ projects.forEach((p, index) => {
         modal.classList.remove("hidden");
         modal.classList.add("flex");
         document.body.style.overflow = "hidden";
+
+        // sembunyikan hoverCard saat modal terbuka
+        hoverCard.style.opacity = "0";
     });
 });
 
 // modal close
 closeModal.addEventListener("click", () => {
     modal.classList.add("hidden");
+    modal.classList.remove("flex");
     document.body.style.overflow = "";
 });
 
 modal.addEventListener("click", (e) => {
     if (e.target === modal) {
         modal.classList.add("hidden");
+        modal.classList.remove("flex");
         document.body.style.overflow = "";
     }
 });
